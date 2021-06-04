@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Camel</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<h1>Camel</h1>
+<nav><a href="..">&laquo; Retour</a></nav>
+<p>
+    Jouons donc au jeu des 7 différences avec GSE France !
+</p>
+<p class="side-by-side">
+    <img src="images/camel-2.jpg" width="548" height="619" alt="Moquette" usemap="#map">
+    <img src="images/camel.jpg" width="548" height="619" alt="Moquette" usemap="#map">
+</p>
+<map id="map" name="map">
+    <area shape="rect" coords="180,65,226,97" onclick="zone('Chocolat')">
+    <area shape="circle" coords="101,439,25" onclick="zone('Logo Citroën')">
+    <area shape="poly" coords="323,473,318,478,340,503,346,497" onclick="zone('Tuile rose')">
+    <area shape="poly" coords="192,473,23,566,63,566" onclick="zone('Triangle rose')">
+    <area shape="poly" coords="274,352,252,375,259,381,280,358" onclick="zone('Tuile bleue/grise')">
+    <area shape="poly" coords="378,226,378,264,441,264,441,316,467,316,468,226" onclick="zone('Zone grise/beige')">
+    <area shape="rect" coords="353,324,443,340" onclick="zone('Ligne bleue')">
+</map>
+<p>
+    Score: <span id="counter">0</span>/7<br>
+    Vous avez déjà trouvé :
+</p>
+<ol id="found"></ol>
+<p class="failure hidden"></p>
+<p class="success hidden">
+    Félicitations ! Vous avez trouvé toutes les différences ! 🎉
+    (ou bien vous avez frénétiquement cliqué de partout)
+</p>
+<script src="assets/jeu.js" type="application/javascript"></script>
+<script src="assets/camel.js" type="application/javascript"></script>
+<footer>
+    <p>
+        Made with &hearts; by <a href="https://gabnotes.org/about-me/">Gabriel Augendre</a>.
+    </p>
+</footer>
+</body>
+</html>
