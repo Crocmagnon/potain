@@ -6,38 +6,42 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<h1>Signal</h1>
-<nav><a href="..">&laquo; Retour</a></nav>
-<p>
-    Peter le livreur arrive sur le plateau de la log au niveau du joli point rose
-    et il doit déposer son colis au bon endroit.<br>
-    Les instructions qui lui sont fournies sont très claires :
-</p>
-<ol>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ol>
-<p>
-    <img src="images/signal.jpg" width="630" height="646" alt="Moquette" usemap="#map">
-    <map id="map" name="map">
-        <area shape="rect" coords="527,48,585,229" onclick="win()">
-        <area shape="rect" coords="0,0,1260,1292" onclick="lose()">
-    </map>
-</p>
-<p class="failure hidden">
-    Raté ! Les instructions de Peter sont pourtant claires 😉
-</p>
-<p class="success hidden">
-    Félicitations ! Vous avez correctement suivi les instructions ! 🎉
-    (ou bien vous avez frénétiquement cliqué de partout)
-</p>
-<script src="assets/jeu.js" type="application/javascript"></script>
+<header>
+    <h1>Signal</h1>
+</header>
+<main>
+    <nav><a href="..">&laquo; Retour</a></nav>
+    <p>
+        Peter le livreur arrive sur le plateau de la log au niveau du joli point rose
+        et il doit déposer son colis au bon endroit.<br>
+        Les instructions qui lui sont fournies sont très claires :
+    </p>
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <p>
+        <img src="images/signal.jpg" width="630" height="646" alt="Moquette" usemap="#map">
+        <map id="map" name="map">
+            <area shape="rect" coords="527,48,585,229" onclick="win()">
+            <area shape="rect" coords="0,0,1260,1292" onclick="lose()">
+        </map>
+    </p>
+    <p class="failure hidden">
+        Raté ! Les instructions de Peter sont pourtant claires 😉
+    </p>
+    <p class="success hidden">
+        Félicitations ! Vous avez correctement suivi les instructions ! 🎉
+        (ou bien vous avez frénétiquement cliqué de partout)
+    </p>
+</main>
 <footer>
     <p>
         Made with &hearts; by <a href="https://gabnotes.org/about-me/">Gabriel Augendre</a>.
     </p>
 </footer>
+<script src="assets/jeu.js" type="application/javascript"></script>
 </body>
 </html>
