@@ -4,6 +4,7 @@ function win() {
     clearTimeout(timeout);
     document.querySelector(".failure").classList.add("hidden");
     document.querySelector(".success").classList.remove("hidden");
+    document.querySelector(".success-stamp").classList.remove("hidden");
 }
 
 function lose() {

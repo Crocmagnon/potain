@@ -28,6 +28,20 @@ main, footer {
     padding: 0 20px;
 }
 
+.success-stamp {
+    position: absolute;
+    top: 250px;
+    left: 20px;
+    font-size: 60px;
+    transform: rotate(-20deg);
+    color: #0f5132;
+    display: inline-block;
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+    padding: .2em .5em;
+    border-radius: 10px;
+}
+
 .hidden {
     display: none;
 }
