@@ -1,13 +1,22 @@
 let counter = new Set();
 const MAX_DIFFS = 7;
+const foundDisplay = [];
+
+(function () {
+    const found = document.getElementById("found");
+    for (let i = 0; i < MAX_DIFFS; i++) {
+        const li = document.createElement("li");
+        foundDisplay.push(li);
+        found.appendChild(li);
+    }
+})();
 
 function zone(name) {
     if (!counter.has(name)) {
-        counter.add(name);
-        const li = document.createElement("li");
         const content = document.createTextNode(name);
+        const li = foundDisplay[counter.size];
         li.appendChild(content);
-        document.getElementById("found").appendChild(li);
+        counter.add(name);
     }
     displayCounter();
 }

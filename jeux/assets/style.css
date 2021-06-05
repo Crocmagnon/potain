@@ -51,3 +51,9 @@ header h1 {
 a {
     color: rgb(40,53,131);
 }
+
+.img-holder {
+    position: relative;
+    top: 0;
+    left: 0;
+}
