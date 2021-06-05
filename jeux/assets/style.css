@@ -44,5 +44,6 @@ a {
 header {
     background-color: rgb(40,53,131);
     color: white;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
