@@ -14,6 +14,8 @@ let timeBetween = 2000;
 const MIN_TIME_BETWEEN = 1000;
 const ACCELERATION = 100;
 
+let score = 0;
+
 (function () {
     zones = document.getElementsByClassName("zone");
     for (const zone of zones) {
@@ -21,7 +23,6 @@ const ACCELERATION = 100;
             if (gameState !== GAME_STARTED) {
                 return;
             }
-            console.log(event.target.classList);
             if (event.target.classList.contains("inactive")) {
                 gameState = GAME_LOST;
                 end();
@@ -29,13 +30,13 @@ const ACCELERATION = 100;
                 event.target.style.transition = "";
                 event.target.classList.remove("fade-out");
                 event.target.classList.add("inactive");
+                increment();
             }
         })
     }
 })();
 
 function start() {
-    console.log("start!");
     document.getElementsByTagName("button")[0].disabled = true;
     gameState = GAME_STARTED;
     endTimeout = setTimeout(end, 30_000);
@@ -51,9 +52,7 @@ function round() {
     let zone = zones[Math.floor(Math.random() * zones.length)];
     zone.classList.remove("inactive");
     setTimeout(function () {
-        zone.style.transition = `background-color ${timeBetween}ms`;
-    }, 100);
-    setTimeout(function () {
+        zone.style.transition = `background-color ${timeBetween-(MIN_TIME_BETWEEN / 2)}ms`;
         zone.classList.add("fade-out");
     }, MIN_TIME_BETWEEN / 2);
     let zoneTimeout = setTimeout(() => {
@@ -80,4 +79,9 @@ function end() {
     } else if (gameState === GAME_LOST) {
         document.getElementsByClassName("failure stamp")[0].classList.remove("hidden");
     }
+}
+
+function increment() {
+    score++;
+    document.getElementById("score").innerText = score.toString();
 }

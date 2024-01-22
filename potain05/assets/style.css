@@ -38,17 +38,16 @@ main, footer {
 }
 
 .success.stamp {
-    top: 120px;
-    left: 60px;
+    top: 110px;
+    left: 85px;
     color: #0f5132;
     background-color: #d1e7dd;
     border: 3px solid #859a99;
 }
 
 .failure.stamp {
-    /* TODO center the stamp */
-    top: 120px;
-    left: 60px;
+    top: 110px;
+    left: 200px;
     color: #510f0f;
     background-color: #e7d1d1;
     border: 3px solid #9a8585;
