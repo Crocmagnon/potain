@@ -51,8 +51,10 @@ function round() {
 
     let zone = zones[Math.floor(Math.random() * zones.length)];
     zone.classList.remove("inactive");
-    setTimeout(function () {
+    setTimeout(function() {
         zone.style.transition = `background-color ${timeBetween-(MIN_TIME_BETWEEN / 2)}ms`;
+    }, 100);
+    setTimeout(function () {
         zone.classList.add("fade-out");
     }, MIN_TIME_BETWEEN / 2);
     let zoneTimeout = setTimeout(() => {
