@@ -86,7 +86,7 @@ a {
 .img-holder .zone {
     position: absolute;
     display: block;
-    background-color: red;
+    background-color: #c6ff50;
 }
 
 .img-holder .zone.inactive,

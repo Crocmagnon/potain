@@ -82,6 +82,6 @@ function end() {
 }
 
 function increment() {
-    score++;
+    score += Math.floor(Math.random() * zones.length);
     document.getElementById("score").innerText = score.toString();
 }
