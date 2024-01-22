@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Potain de chantier #5</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=potain">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png?v=potain">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png?v=potain">
+    <link rel="manifest" href="assets/icons/site.webmanifest?v=potain">
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg?v=potain" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico?v=potain">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets/icons/browserconfig.xml?v=potain">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:image" content="https://static.augendre.info/potain3/images/fond.png">
+</head>
+<body>
+<header>
+    <h1>Potain de chantier #5</h1>
+</header>
+<main>
+    <h2>Jeu interactif</h2>
+    <p>
+        Aide Pimpin le technicien à reboucher les fuites ! <br>
+        <button onclick="start()">Commencer</button>
+    </p>
+    <div class="img-holder">
+        <img src="images/fond.png" width="727" height="330" alt="Plan Cecolyon">
+        <div id="bureau-1" class="zone inactive" style="width:50px; height: 50px; top: 0; left: 0;"></div>
+        <div id="bureau-2" class="zone inactive" style="width:50px; height: 50px; top: 55px; left: 0;"></div>
+        <div id="bureau-3" class="zone inactive" style="width:50px; height: 50px; top: 0; left: 55px;"></div>
+        <div id="bureau-4" class="zone inactive" style="width:50px; height: 50px; top: 55px; left: 55px;"></div>
+        <span class="success stamp hidden">FÉLICITATIONS 🎉</span>
+        <span class="failure stamp hidden">PERDU 😞</span>
+    </div>
+</main>
+<footer>
+    <p>
+        Made with &hearts; by <a href="https://gabnotes.org/about-me/">Gabriel Augendre</a>.
+        Ce programme est un <a href="https://fr.wikipedia.org/wiki/Logiciel_libre">logiciel libre</a>.
+        <a href="https://git.augendre.info/gaugendre/potain">Code source</a>.
+    </p>
+</footer>
+<script src="assets/jeu.js"></script>
+<!--<script data-goatcounter="https://static.gc.augendre.info/count"-->
+<!--        async src="https://static.gc.augendre.info/count.js"></script>-->
+</body>
+</html>

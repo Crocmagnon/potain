@@ -1,0 +1,96 @@
+html {
+    height:100%;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header {
+    background-color: rgb(40,53,131);
+    color: white;
+    margin-bottom: 20px;
+}
+
+main, footer {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.stamp {
+    position: absolute;
+    font-size: 60px;
+    transform: rotate(-20deg);
+    display: inline-block;
+    padding: .2em .5em;
+    border-radius: 10px;
+}
+
+.success.stamp {
+    top: 120px;
+    left: 60px;
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border: 3px solid #859a99;
+}
+
+.failure.stamp {
+    /* TODO center the stamp */
+    top: 120px;
+    left: 60px;
+    color: #510f0f;
+    background-color: #e7d1d1;
+    border: 3px solid #9a8585;
+}
+
+.hidden {
+    display: none;
+}
+
+.failure {
+    color: #a71717;
+}
+
+.success {
+    color: green;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+header h1 {
+    text-align: center;
+}
+
+a {
+    color: rgb(40,53,131);
+}
+
+.img-holder {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.img-holder .zone {
+    position: absolute;
+    display: block;
+    background-color: red;
+}
+
+.img-holder .zone.inactive,
+.img-holder .zone.fade-out {
+    background-color: transparent;
+}
