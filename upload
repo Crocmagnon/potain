@@ -1,4 +1,4 @@
 #!/bin/bash
 
-scp potain05/index.html ubuntu:caddy/static/potain5/
-scp -r potain05/jeux ubuntu:caddy/static/potain5/
+#scp potain05/index.html ubuntu:/mnt/data/caddy/static/potain5/
+scp -r potain05/ ubuntu:/mnt/data/caddy/static/
