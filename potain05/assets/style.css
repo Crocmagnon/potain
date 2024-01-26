@@ -86,10 +86,14 @@ a {
 .img-holder .zone {
     position: absolute;
     display: block;
-    background-color: #c6ff50;
+    background-image: url("../images/gouttes.png");
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: center;
+    filter: invert(71%) sepia(80%) saturate(342%) hue-rotate(72deg) brightness(102%) contrast(100%);
 }
 
 .img-holder .zone.inactive,
 .img-holder .zone.fade-out {
-    background-color: transparent;
+    opacity: 0;
 }
