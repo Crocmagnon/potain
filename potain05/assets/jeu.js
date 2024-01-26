@@ -24,8 +24,8 @@ let score = 0;
                 return;
             }
             if (event.target.classList.contains("inactive")) {
-                gameState = GAME_LOST;
-                end();
+                // gameState = GAME_LOST;
+                // end();
             } else {
                 event.target.style.transition = "";
                 event.target.classList.remove("fade-out");
@@ -50,16 +50,24 @@ function round() {
     }
 
     let zone = zones[Math.floor(Math.random() * zones.length)];
-    zone.classList.remove("inactive");
+    log("selected zone", zone);
+    zone.classList.remove("inactive", "fade-out");
+    log("removed inactive");
+    setTimeout(function () {
+        console.log("clicking", zone);
+        zone.click();
+    }, 200);
     setTimeout(function() {
-        zone.style.transition = `opacity ${timeBetween-(MIN_TIME_BETWEEN / 2)}ms`;
+        zone.style.transition = `opacity ${timeBetween-(MIN_TIME_BETWEEN / 2)}ms linear`;
+        log("set transition opacity");
     }, 100);
     setTimeout(function () {
         zone.classList.add("fade-out");
+        log("set fade out");
     }, MIN_TIME_BETWEEN / 2);
     let zoneTimeout = setTimeout(() => {
-        if (!zone.classList.contains("inactive")) {
-            console.log("lost because didn't click fast enough", zone.id);
+        if (!zone.classList.contains("inactive") && gameState === GAME_STARTED) {
+            log("lost because didn't click fast enough", zone.id);
             gameState = GAME_LOST;
             end();
         }
@@ -84,6 +92,10 @@ function end() {
 }
 
 function increment() {
-    score += Math.floor(Math.random() * zones.length);
+    score += Math.floor(Math.random() * zones.length) + 1;
     document.getElementById("score").innerText = score.toString();
+}
+
+function log(...args) {
+    console.log(...args);
 }
