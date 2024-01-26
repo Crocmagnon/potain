@@ -16,17 +16,19 @@ const ACCELERATION = 100;
 
 let score = 0;
 
-(function () {
+function start() {
+    document.getElementsByTagName("button")[0].disabled = true;
+    gameState = GAME_STARTED;
+    endTimeout = setTimeout(end, 30_000);
+    roundTimeout = setTimeout(round, 1);
+
     zones = document.getElementsByClassName("zone");
     for (const zone of zones) {
         zone.addEventListener("click", event => {
             if (gameState !== GAME_STARTED) {
                 return;
             }
-            if (event.target.classList.contains("inactive")) {
-                // gameState = GAME_LOST;
-                // end();
-            } else {
+            if (!event.target.classList.contains("inactive")) {
                 event.target.style.transition = "";
                 event.target.classList.remove("fade-out");
                 event.target.classList.add("inactive");
@@ -34,13 +36,6 @@ let score = 0;
             }
         })
     }
-})();
-
-function start() {
-    document.getElementsByTagName("button")[0].disabled = true;
-    gameState = GAME_STARTED;
-    endTimeout = setTimeout(end, 30_000);
-    roundTimeout = setTimeout(round, 1);
 }
 
 function round() {
@@ -50,31 +45,27 @@ function round() {
     }
 
     let zone = zones[Math.floor(Math.random() * zones.length)];
-    log("selected zone", zone);
+
     zone.classList.remove("inactive", "fade-out");
-    log("removed inactive");
-    setTimeout(function () {
-        console.log("clicking", zone);
-        zone.click();
-    }, 200);
+
     setTimeout(function() {
         zone.style.transition = `opacity ${timeBetween-(MIN_TIME_BETWEEN / 2)}ms linear`;
-        log("set transition opacity");
     }, 100);
+
     setTimeout(function () {
         zone.classList.add("fade-out");
-        log("set fade out");
     }, MIN_TIME_BETWEEN / 2);
+
     let zoneTimeout = setTimeout(() => {
         if (!zone.classList.contains("inactive") && gameState === GAME_STARTED) {
-            log("lost because didn't click fast enough", zone.id);
+            console.log("lost because didn't click fast enough", zone.id);
             gameState = GAME_LOST;
             end();
         }
     }, timeBetween);
     zone.addEventListener("click", () => {clearTimeout(zoneTimeout)})
 
-    // Recursive call
+    // Recursive call, sorta
     timeBetween -= ACCELERATION;
     if (timeBetween <= MIN_TIME_BETWEEN) {timeBetween = MIN_TIME_BETWEEN;}
     roundTimeout = setTimeout(round, timeBetween);
@@ -94,8 +85,4 @@ function end() {
 function increment() {
     score += Math.floor(Math.random() * zones.length) + 1;
     document.getElementById("score").innerText = score.toString();
-}
-
-function log(...args) {
-    console.log(...args);
 }
