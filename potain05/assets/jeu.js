@@ -4,23 +4,31 @@ const GAME_NOT_STARTED = 0;
 const GAME_STARTED = 1;
 const GAME_WON = 2;
 const GAME_LOST = 3;
+const CHEAT = false;
 
 let gameState = GAME_NOT_STARTED;
 
 let zones = undefined;
+let timer = undefined;
+
 let endTimeout = undefined;
 let roundTimeout = undefined;
+let timerInterval = undefined;
+
 let timeBetween = 2000;
 const MIN_TIME_BETWEEN = 1000;
 const ACCELERATION = 100;
+const DURATION = 60_500;
 
 let score = 0;
+let zonesCleared = 0;
+let startTime = undefined;
 
 function start() {
     document.getElementsByTagName("button")[0].disabled = true;
     gameState = GAME_STARTED;
-    endTimeout = setTimeout(end, 30_000);
-    roundTimeout = setTimeout(round, 1);
+    startTime = new Date();
+    timer = document.getElementById("timer");
 
     zones = document.getElementsByClassName("zone");
     for (const zone of zones) {
@@ -36,6 +44,15 @@ function start() {
             }
         })
     }
+
+    endTimeout = setTimeout(end, DURATION);
+    timerInterval = setInterval(updateTimer, 500);
+    roundTimeout = setTimeout(round, 1);
+}
+
+function updateTimer() {
+    const now = new Date();
+    timer.innerText = Math.floor(Math.abs(startTime - now) / 1000).toString();
 }
 
 function round() {
@@ -47,6 +64,12 @@ function round() {
     let zone = zones[Math.floor(Math.random() * zones.length)];
 
     zone.classList.remove("inactive", "fade-out");
+
+    if (CHEAT) {
+        setTimeout(() => {
+            zone.click();
+        }, 200);
+    }
 
     setTimeout(function() {
         zone.style.transition = `opacity ${timeBetween-(MIN_TIME_BETWEEN / 2)}ms linear`;
@@ -74,6 +97,7 @@ function round() {
 function end() {
     clearTimeout(roundTimeout);
     clearTimeout(endTimeout);
+    clearInterval(timerInterval);
     if (gameState === GAME_STARTED) {
         gameState = GAME_WON;
         document.getElementsByClassName("success stamp")[0].classList.remove("hidden");
@@ -84,5 +108,7 @@ function end() {
 
 function increment() {
     score += Math.floor(Math.random() * zones.length) + 1;
+    zonesCleared++;
     document.getElementById("score").innerText = score.toString();
+    document.getElementById("zonesCount").innerText = zonesCleared.toString();
 }

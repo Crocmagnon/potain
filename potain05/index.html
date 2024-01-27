@@ -22,8 +22,9 @@
 <main>
     <h2>Jeu interactif</h2>
     <p>
-        Aide Pimpin le technicien à reboucher les fuites de fluide frigorigène ! <br>
-        Score : <span id="score">0</span> kg CO<sub>2</sub>e non rejetés dans l'atmosphère<br>
+        Tu as <strong>une minute</strong> pour aider Pimpin le technicien à reboucher les fuites de fluide frigorigène ! <br>
+        Score : <span id="score">0</span> kg CO<sub>2</sub>e non rejetés dans l'atmosphère (<span id="zonesCount">0</span> fuites).<br>
+        Temps écoulé : <span id="timer">0</span>s.
         <button onclick="start()">Commencer</button>
     </p>
     <div class="img-holder">
@@ -43,6 +44,7 @@
         <span class="success stamp hidden">FÉLICITATIONS 🎉</span>
         <span class="failure stamp hidden">PERDU 😞</span>
     </div>
+    <p>N'hésite pas à partager ton score sur Teams 😉</p>
 </main>
 <footer>
     <p>
@@ -52,7 +54,7 @@
     </p>
 </footer>
 <script src="assets/jeu.js"></script>
-<!--<script data-goatcounter="https://static.gc.augendre.info/count"-->
-<!--        async src="https://static.gc.augendre.info/count.js"></script>-->
+<script data-goatcounter="https://static.gc.augendre.info/count"
+        async src="https://static.gc.augendre.info/count.js"></script>
 </body>
 </html>
