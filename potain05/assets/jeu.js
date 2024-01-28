@@ -21,7 +21,8 @@ const ACCELERATION = 100;
 const DURATION = 60_500;
 
 let score = 0;
-let zonesCleared = 0;
+let zonesCount = 0;
+let zonesTotal = 0;
 let startTime = undefined;
 
 function start() {
@@ -40,7 +41,7 @@ function start() {
                 event.target.style.transition = "";
                 event.target.classList.remove("fade-out");
                 event.target.classList.add("inactive");
-                increment();
+                incrementScore();
             }
         })
     }
@@ -63,7 +64,10 @@ function round() {
 
     let zone = zones[Math.floor(Math.random() * zones.length)];
 
+    incrementTotal();
+
     zone.classList.remove("inactive", "fade-out");
+    zone.style.transition = "";
 
     if (CHEAT) {
         setTimeout(() => {
@@ -78,15 +82,6 @@ function round() {
     setTimeout(function () {
         zone.classList.add("fade-out");
     }, MIN_TIME_BETWEEN / 2);
-
-    let zoneTimeout = setTimeout(() => {
-        if (!zone.classList.contains("inactive") && gameState === GAME_STARTED) {
-            console.log("lost because didn't click fast enough", zone.id);
-            gameState = GAME_LOST;
-            end();
-        }
-    }, timeBetween);
-    zone.addEventListener("click", () => {clearTimeout(zoneTimeout)})
 
     // Recursive call, sorta
     timeBetween -= ACCELERATION;
@@ -106,9 +101,14 @@ function end() {
     }
 }
 
-function increment() {
+function incrementScore() {
     score += Math.floor(Math.random() * zones.length) + 1;
-    zonesCleared++;
+    zonesCount++;
     document.getElementById("score").innerText = score.toString();
-    document.getElementById("zonesCount").innerText = zonesCleared.toString();
+    document.getElementById("zonesCount").innerText = zonesCount.toString();
+}
+
+function incrementTotal() {
+    zonesTotal++;
+    document.getElementById("zonesTotal").innerText = zonesTotal.toString();
 }

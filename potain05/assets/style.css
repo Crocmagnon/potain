@@ -39,31 +39,16 @@ main, footer {
 
 .success.stamp {
     top: 110px;
-    left: 85px;
+    left: 220px;
     color: #0f5132;
     background-color: #d1e7dd;
     border: 3px solid #859a99;
-}
-
-.failure.stamp {
-    top: 110px;
-    left: 200px;
-    color: #510f0f;
-    background-color: #e7d1d1;
-    border: 3px solid #9a8585;
 }
 
 .hidden {
     display: none;
 }
 
-.failure {
-    color: #a71717;
-}
-
-.success {
-    color: green;
-}
 
 h2 {
     margin-top: 0;
